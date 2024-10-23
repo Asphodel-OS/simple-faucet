@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/hex"
 	"fmt"
 	"io"
 	"net/http"
@@ -135,7 +136,7 @@ func main() {
 	}
 
 	privKey = hd.Secp256k1.Generate()(derivedPriv)
-	pubk := privKey.PubKey()
+	pubk := privKey.PubKey() 
 
 	address, err = bech32.ConvertAndEncode("init", pubk.Address())
 	if err != nil {
